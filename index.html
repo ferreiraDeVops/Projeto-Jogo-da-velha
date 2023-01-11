@@ -11,23 +11,33 @@
 <body>
         <h1>Jogo Da Velha</h1>
         <hr>
-        <label for="player1">X</label>
-        <input type="text" id="player1" placeholder="Nome do jogador 1">
-        <label for="player2">O</label>
-        <input type="text" id="player2" placeholder="Nome do jogador 2">
-        <button id="start">Começar!</button>
-        <h2>Vez de: <span id="turnPlayer"></span></h2>
+        <header class="align">
+                <section class="player1">
+                        <label for="player1">X</label>
+                        <input type="text" id="player1" placeholder="Nome do jogador 1">
+                </section>
+                <section class="player2">
+                        <label for="player2">O</label>
+                        <input type="text" id="player2" placeholder="Nome do jogador 2">
+                </section>
+        </header>
+        <section class="start">
+                <button id="start">Começar!</button>
+        </section>
+        <section class="vezDe">
+                <h2>Vez de: <span id="turnPlayer"></span></h2>
+        </section>
         <main>
                 <section id="gameBoard">
-                        <span data-region="0.0"></span>
-                        <span data-region="0.1"></span>
-                        <span data-region="0.2"></span>
-                        <span data-region="1.0"></span>
-                        <span data-region="1.1"></span>
-                        <span data-region="1.2"></span>
-                        <span data-region="2.0"></span>
-                        <span data-region="2.1"></span>
-                        <span data-region="2.2"></span>
+                        <span class="cursorPointer" data-region="0.0"></span>
+                        <span class="cursorPointer" data-region="0.1"></span>
+                        <span class="cursorPointer" data-region="0.2"></span>
+                        <span class="cursorPointer" data-region="1.0"></span>
+                        <span class="cursorPointer" data-region="1.1"></span>
+                        <span class="cursorPointer" data-region="1.2"></span>
+                        <span class="cursorPointer" data-region="2.0"></span>
+                        <span class="cursorPointer" data-region="2.1"></span>
+                        <span class="cursorPointer" data-region="2.2"></span>
                 </section>
         </main>
 

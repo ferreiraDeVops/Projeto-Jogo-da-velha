@@ -15,13 +15,21 @@ function initializeGame(){// preperação para começar o jogo
                 element.classList.remove(`win`) 
                 element.innerText = ``
                 element.classList.add(`cursor-pointer`)
+                element.classList.add(`cursorPointer`)
                 element.addEventListener(`click`,handleBoardClick) // Adicionando um evento de click no board regions
         })
 
 }
 function disableRegions(element){
-        element.style.cursor = `default`
+        element.classList.remove(`cursorPointer`)
         element.removeEventListener(`click`, handleBoardClick) // Retirando o evento click no boardRegions
+}
+function handleWin(regions){
+        regions.forEach(function(region){
+                document.querySelector(`[data-region="`+ region +`"]`).classList.add(`win`)
+        })
+        const player = document.getElementById(turnPlayer).value
+        document.querySelector(`h2`).innerHTML = `${player} Venceu!`
 }
 function handleBoardClick(ev){
         console.log(`Clicou`)
@@ -45,6 +53,7 @@ function handleBoardClick(ev){
         // Verifica se alguém venceu
         const winRegions = getWinRegions()
         if (winRegions.length > 0) {
+                handleWin(winRegions)
         } else if (vBoard.flat().includes('')) {
           turnPlayer = turnPlayer === 'player1' ? 'player2' : 'player1'
           updateTitle()
@@ -52,7 +61,6 @@ function handleBoardClick(ev){
           document.querySelector('h2').innerHTML = 'Empate!'
         }
 }
-
 function getWinRegions(){
         const winRegions = []
         if (vBoard[0][0] && vBoard[0][0] === vBoard[0][1] && vBoard[0][0] === vBoard[0][2])
